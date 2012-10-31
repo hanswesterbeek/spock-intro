@@ -1,18 +1,24 @@
 apply plugin: "groovy"
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "eclipse"
 
 description = "A lab showcasing some of the testing stuff in the Groovy ecosystem"
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 }
 
 configurations {
-	testCompile.transitive = true
 	all*.exclude group: "commons-logging"
-}  
+}
+
 dependencies {
-	groovy "org.codehaus.groovy:groovy-all:1.8.6"
-	testCompile "org.spockframework:spock-core:0.6-groovy-1.8" 
+	groovy "org.codehaus.groovy:groovy-all:1.8.8"
+	testCompile "org.spockframework:spock-core:0.7-groovy-1.8" 
 	
 	compile('org.slf4j:slf4j-api:1.6.2')
 	testRuntime('org.slf4j:jcl-over-slf4j:1.6.2')
@@ -21,5 +27,12 @@ dependencies {
 }
 
 task createWrapper(type: Wrapper) {
-    gradleVersion = '1.0-rc-3'
+    gradleVersion = '1.2'
+}
+
+idea {
+	project {
+		jdkName = '1.6'
+		languageLevel = '1.6'
+	}
 }
