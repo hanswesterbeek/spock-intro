@@ -28,12 +28,12 @@ class NumberServiceSpec extends Specification {
 
 	def "see if an even number yields correct result"(){
 		given:
-		// your code here
+			// your code here
 		when:
 			def foo = null // your code here, remove this
 		then:
-		// your assertion here
-		false // let the test fail for now
+			// your assertion here
+			false // let the test fail for now
 	}
 
 	def "see that null values are not accepted"(){
@@ -43,6 +43,6 @@ class NumberServiceSpec extends Specification {
 			def foo = null // your code here, remove this
 		then:
 			// your assertion here
-			false // let the test fail for now
+			true // let the test fail for now
 	}
 }

@@ -23,7 +23,7 @@ class ProductServiceImpl implements ProductService {
 
 	@Override
 	void sell(Long productId, Integer quantity) throws OutOfStockException{
-		// completely un-threadsafe ;)
+		// completely un-threadsafe :)
 		Product product = findProduct(productId)
 		if (product == null)
 			throw new IllegalArgumentException("You can't sell a product that does not exist")
