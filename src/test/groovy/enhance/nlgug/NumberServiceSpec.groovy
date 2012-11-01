@@ -17,32 +17,23 @@ class NumberServiceSpec extends Specification {
 
 	}
 	def "see if an odd number yields correct result"(){
-		given:
-			// your code here
 		when:
-			def foo = null // your code here, remove this
+			def result = numberService.isEven(1)
 		then:
-			// your assertion here
-			false // let the test fail for now
+			!result
 	}
 
 	def "see if an even number yields correct result"(){
-		given:
-			// your code here
 		when:
-			def foo = null // your code here, remove this
+			def result = numberService.isEven(2)
 		then:
-			// your assertion here
-			false // let the test fail for now
+			result
 	}
 
 	def "see that null values are not accepted"(){
-		given:
-			// your code here
 		when:
-			def foo = null // your code here, remove this
+			def result = numberService.isEven(null)
 		then:
-			// your assertion here
-			true // let the test fail for now
+			thrown(IllegalArgumentException)
 	}
 }
