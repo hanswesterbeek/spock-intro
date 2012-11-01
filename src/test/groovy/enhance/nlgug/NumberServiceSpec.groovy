@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 /**
  * Spec that demonstrates that we can have pure java classes as unit under tests.
- * Other subject covered is asserting excepitions
+ * Other subject covered is asserting exceptions
  * @author Hans Westerbeek
  */
 class NumberServiceSpec extends Specification {
