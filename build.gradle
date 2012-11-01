@@ -1,7 +1,18 @@
+buildscript {
+    repositories {
+		mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.mapvine:gradle-cobertura-plugin:1.0'
+    }
+}
+
 apply plugin: "groovy"
 apply plugin: "java"
 apply plugin: "idea"
 apply plugin: "eclipse"
+apply plugin: 'cobertura'
 
 description = "A lab showcasing some of the testing stuff in the Groovy ecosystem"
 sourceCompatibility = 1.6
@@ -35,4 +46,9 @@ idea {
 		jdkName = '1.6'
 		languageLevel = '1.6'
 	}
+}
+
+cobertura {
+    format = 'html'
+    includes = ['**/*.java', '**/*.groovy']
 }
