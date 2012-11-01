@@ -12,15 +12,14 @@ class AssertionStyleSpec extends Specification{
 
 	def "given-when-then style"() {
 		when:
-		def x = Math.max(5, 9)
-
+			def x = Math.max(5, 9)
 		then:
-		x == 9
+			x == 9
 	}
 
 	def "expect style"() {
 		expect:
-		Math.max(5, 9) == 9
+			Math.max(5, 9) == 9
 	}
 
 }

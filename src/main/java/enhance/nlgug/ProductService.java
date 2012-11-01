@@ -20,6 +20,13 @@ public interface ProductService {
 	 */
 	List<Product> findAll();
 
+
+	/**
+	 *
+	 * @param product
+	 */
+	void addProduct(Product product);
+
 	/**
 	 *
 	 * @param productId
@@ -29,4 +36,5 @@ public interface ProductService {
 	 */
 	void sell(Long productId, Integer quantity) throws OutOfStockException;
 
+	void deleteProduct(Product product);
 }
