@@ -10,13 +10,21 @@ class ProductServiceSpec {
 
 	// its collabotators
 	ProductRepository productRepository
-	Emailer emailer;
+	Emailer emailer
+	Product product
 
 	def setup(){
+		productRepository = Mock(ProductRepository)
+		emailer = Mock(Emailer)
 
+		productService = new ProductServiceImpl(productRepository: productRepository, emailer: emailer)
+
+		product = new Product()
 	}
 
+
 	def "successfully add a product"(){
+
 
 	}
 
