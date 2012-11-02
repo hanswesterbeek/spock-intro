@@ -54,24 +54,42 @@ class ProductServiceSpec extends Specification {
 	}
 
 	def "we can not sell a product that is null"(){
-
+		given:
+			def unexistingId = 1
+		when:
+			productService.sell(unexistingId, 200)
+		then:
+			1 * productRepository.getProduct(unexistingId) >> {return null}
+			thrown(IllegalArgumentException)
 	}
 
 	def "Selling a product causes its stock to be updated"(){
 		given:
 			def quantity = 3
+			def originalStock = new Integer(product.stock)
 		when:
 			productService.sell(product.id, quantity)
 		then:
 			1 * productRepository.getProduct(product.id) >> {return product}
-			product.stock == 7
+			product.stock == (originalStock - quantity)
 	}
 
 	def "An email about our product must be sent when has hit the stock limit"(){
-
+		given:
+			def originalStock = new Integer(product.stock)
+		when:
+			productService.sell(product.id, product.stock + 1)
+		then:
+			1 * productRepository.getProduct(product.id) >> {return product}
+			thrown(OutOfStockException)
+			1 * emailer.sendOutOfStockEmail(product)
+			product.stock == originalStock
 	}
 
 	def "Deleting a product involves getting a token to be able to do so"(){
-
+		when:
+			productService.deleteProduct(product)
+		then:
+			false
 	}
 }
