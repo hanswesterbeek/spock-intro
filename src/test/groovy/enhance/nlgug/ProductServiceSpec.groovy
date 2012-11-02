@@ -12,15 +12,38 @@ class ProductServiceSpec extends Specification {
 
 	// its collabotators
 	ProductRepository productRepository
-	Emailer emailer;
+	Emailer emailer
+	Product product
+	AuthorizationService authorizationService
+
+	def setup(){
+		productRepository = Mock(ProductRepository)
+		emailer = Mock(Emailer)
+		authorizationService = Mock(AuthorizationService)
+
+		productService = new ProductServiceImpl(productRepository: productRepository, emailer: emailer,
+				authorizationService: authorizationService)
+
+		product = new Product(id:  14, name: "foo", stock: 10)
+	}
+
 
 
 	def "Retrieving a Product happens by using the id that you pass to the service "(){
+		when:
+			def result = productService.findProduct(product.id)
+		then:
+			result == product
+			1 * productRepository.getProduct(product.id) >> {return product}
 
 	}
 
 	def "Successfully add a product"(){
-
+		when:
+			productService.addProduct(product)
+		then:
+			1 * productRepository.findByName(product.name) >> { return null}
+			1 * productRepository.addProduct(product)
 	}
 
 	def "Can not add a product with a name that already exists"(){
@@ -59,16 +82,28 @@ class ProductServiceSpec extends Specification {
 			productService.sell(product.id, product.stock + 1)
 		then:
 			1 * productRepository.getProduct(product.id) >> {return product}
-			thrown(OutOfStockException)
+		thrown(OutOfStockException)
 			1 * emailer.sendOutOfStockEmail(product)
 			product.stock == originalStock
 	}
 
-	def "Deleting a product involves getting a token to be able to do so"(){
+	def "Deleting a product involves getting a token to be able to do so: let it fail"(){
 		when:
 			productService.deleteProduct(product)
 		then:
 			1 * authorizationService.acquireToken() // let it return null
 			thrown(RuntimeException)
 	}
+
+	def "Deleting a product involves getting a token to be able to do so: let it succeed"(){
+		given:
+			def token = 1
+
+		when:
+			productService.deleteProduct(product)
+		then:
+			1 * authorizationService.acquireToken() >> { return token}
+			1 * productRepository.deleteProduct(product, token)
+	}
+
 }
