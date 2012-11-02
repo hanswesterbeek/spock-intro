@@ -16,13 +16,6 @@ public interface ProductService {
 
 	/**
 	 *
-	 * @return
-	 */
-	List<Product> findAll();
-
-
-	/**
-	 *
 	 * @param product
 	 */
 	void addProduct(Product product);

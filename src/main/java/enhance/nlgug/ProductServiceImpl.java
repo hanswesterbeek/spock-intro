@@ -20,11 +20,6 @@ class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> findAll() {
-		return productRepository.findAll();
-	}
-
-	@Override
 	public void addProduct(Product product) {
 
 		// see if it already exists
