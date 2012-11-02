@@ -44,7 +44,9 @@ class ProductServiceImpl implements ProductService {
 	@Override
 	public void deleteProduct(Product product) {
 		Integer token = authorizationService.acquireToken();
-		// i know, this is a bit contrived :)
+		if (token == null){
+			throw new RuntimeException("Access denied");
+		}
 		productRepository.deleteProduct(product, token);
 	}
 
