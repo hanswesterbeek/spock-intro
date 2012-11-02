@@ -13,14 +13,10 @@ class NumberServiceSpec extends Specification {
 
 	def setup(){
 		numberService = new NumberServiceImpl()
-		// your code here
-
 	}
 	def "see if an odd number yields correct result"(){
-		when:
-			def result = numberService.isEven(1)
-		then:
-			!result
+		expect:
+			numberService.isEven(1) == false
 	}
 
 	def "see if an even number yields correct result"(){
