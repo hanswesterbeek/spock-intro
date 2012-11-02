@@ -12,39 +12,15 @@ class ProductServiceSpec extends Specification {
 
 	// its collabotators
 	ProductRepository productRepository
-	Emailer emailer
-	Product product
-	AuthorizationService authorizationService
-
-	def setup(){
-		productRepository = Mock(ProductRepository)
-		emailer = Mock(Emailer)
-		authorizationService = Mock(AuthorizationService)
-		productService = new ProductServiceImpl(productRepository: productRepository, emailer: emailer,
-				authorizationService: authorizationService)
-
-		product = new Product(id:  14, name: "foo", stock: 10)
-	}
-
+	Emailer emailer;
 
 
 	def "Retrieving a Product happens by using the id that you pass to the service "(){
 
-		when:
-			def result = productService.findProduct(product.id)
-		then:
-			result == product
-			1 * productRepository.getProduct(product.id) >> {return product}
-
-
 	}
 
 	def "Successfully add a product"(){
-		when:
-			productService.addProduct(product)
-		then:
-			1 * productRepository.findByName(product.name) >> { return null}
-			1 * productRepository.addProduct(product)
+
 	}
 
 	def "Can not add a product with a name that already exists"(){
