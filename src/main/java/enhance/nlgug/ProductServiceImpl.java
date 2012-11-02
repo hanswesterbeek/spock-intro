@@ -10,6 +10,11 @@ class ProductServiceImpl implements ProductService {
 	private Emailer emailer;
 	private AuthorizationService authorizationService;
 
+	ProductServiceImpl(ProductRepository productRepository, Emailer emailer, AuthorizationService authorizationService) {
+		this.productRepository = productRepository;
+		this.emailer = emailer;
+		this.authorizationService = authorizationService;
+	}
 
 	@Override
 	public Product findProduct(Long id) {
@@ -34,7 +39,7 @@ class ProductServiceImpl implements ProductService {
 			throw new IllegalArgumentException("You can't sell a product that does not exist");
 
 		if (product.getStock() < quantity){
-			this.emailer.sendOutOfStockEmail(product);
+			emailer.sendOutOfStockEmail(product);
 			throw new OutOfStockException(product.getStock());
 		}
 
