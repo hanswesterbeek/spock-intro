@@ -12,6 +12,10 @@ class ProductServiceSpec {
 	ProductRepository productRepository
 	Emailer emailer;
 
+	def setup(){
+
+	}
+
 	def "successfully add a product"(){
 
 	}
