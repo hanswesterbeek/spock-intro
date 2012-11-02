@@ -20,10 +20,7 @@ class ProductServiceSpec extends Specification {
 		productRepository = Mock(ProductRepository)
 		emailer = Mock(Emailer)
 		authorizationService = Mock(AuthorizationService)
-
-		productService = new ProductServiceImpl(productRepository: productRepository, emailer: emailer,
-				authorizationService: authorizationService)
-
+		productService = new ProductServiceImpl(productRepository, emailer, authorizationService)
 		product = new Product(id:  14, name: "foo", stock: 10)
 	}
 
