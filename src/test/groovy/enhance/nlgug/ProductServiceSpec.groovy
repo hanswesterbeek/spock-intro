@@ -27,6 +27,10 @@ class ProductServiceSpec extends Specification {
 
 	}
 
+	def "we can not sell a product that is null"(){
+
+	}
+
 	def "Selling a product causes its stock to be updated"(){
 
 	}
