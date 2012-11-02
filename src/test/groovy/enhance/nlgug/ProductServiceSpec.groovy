@@ -23,24 +23,29 @@ class ProductServiceSpec {
 	}
 
 
-	def "successfully add a product"(){
+
+	def "Retrieving a Product happens by using the id that you pass to the service "(){
+
+	}
+
+	def "Successfully add a product"(){
 
 
 	}
 
-	def "can not add a product with a name that already exists"(){
+	def "Can not add a product with a name that already exists"(){
 
 	}
 
-	def "selling a product causes its stock to be updated"(){
+	def "Selling a product causes its stock to be updated"(){
 
 	}
 
-	def "an email about our product must be sent when has hit the stock limit"(){
+	def "An email about our product must be sent when has hit the stock limit"(){
 
 	}
 
-	def "deleting a product involves getting a token to be able to do so"(){
+	def "Deleting a product involves getting a token to be able to do so"(){
 
 	}
 }
