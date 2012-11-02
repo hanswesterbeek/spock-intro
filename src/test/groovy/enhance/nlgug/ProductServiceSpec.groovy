@@ -53,6 +53,10 @@ class ProductServiceSpec extends Specification {
 			0 * productRepository.addProduct(_) // that method may not have been invoked
 	}
 
+	def "we can not sell a product that is null"(){
+
+	}
+
 	def "Selling a product causes its stock to be updated"(){
 		given:
 			def quantity = 3
