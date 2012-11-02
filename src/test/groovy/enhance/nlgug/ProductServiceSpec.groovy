@@ -39,7 +39,11 @@ class ProductServiceSpec extends Specification {
 
 	}
 
-	def "Deleting a product involves getting a token to be able to do so"(){
+	def "Deleting a product involves getting a token to be able to do so: let this fail"(){
+
+	}
+
+	def "Deleting a product involves getting a token to be able to do so: let it succeed"(){
 
 	}
 }
