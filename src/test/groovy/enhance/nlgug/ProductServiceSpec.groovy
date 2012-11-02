@@ -14,12 +14,14 @@ class ProductServiceSpec extends Specification {
 	ProductRepository productRepository
 	Emailer emailer
 	Product product
+	AuthorizationService authorizationService
 
 	def setup(){
 		productRepository = Mock(ProductRepository)
 		emailer = Mock(Emailer)
-
-		productService = new ProductServiceImpl(productRepository: productRepository, emailer: emailer)
+		authorizationService = Mock(AuthorizationService)
+		productService = new ProductServiceImpl(productRepository: productRepository, emailer: emailer,
+				authorizationService: authorizationService)
 
 		product = new Product(id:  14, name: "foo", stock: 10)
 	}
@@ -90,6 +92,7 @@ class ProductServiceSpec extends Specification {
 		when:
 			productService.deleteProduct(product)
 		then:
-			false
+			1 * authorizationService.acquireToken() // let it return null
+			thrown(RuntimeException)
 	}
 }
