@@ -25,7 +25,12 @@ class ProductServiceSpec {
 
 
 	def "Retrieving a Product happens by using the id that you pass to the service "(){
-
+		given:
+			def id = 1
+		when:
+			def product = productService.findProduct(id)
+		then:
+			1 * productRepository.getProduct(id)
 	}
 
 	def "Successfully add a product"(){
