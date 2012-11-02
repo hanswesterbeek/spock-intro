@@ -12,23 +12,28 @@ class ProductServiceSpec {
 	ProductRepository productRepository
 	Emailer emailer;
 
-	def "successfully add a product"(){
+
+	def "Retrieving a Product happens by using the id that you pass to the service "(){
 
 	}
 
-	def "can not add a product with a name that already exists"(){
+	def "Successfully add a product"(){
 
 	}
 
-	def "selling a product causes its stock to be updated"(){
+	def "Can not add a product with a name that already exists"(){
 
 	}
 
-	def "an email about our product must be sent when has hit the stock limit"(){
+	def "Selling a product causes its stock to be updated"(){
 
 	}
 
-	def "deleting a product involves getting a token to be able to do so"(){
+	def "An email about our product must be sent when has hit the stock limit"(){
+
+	}
+
+	def "Deleting a product involves getting a token to be able to do so"(){
 
 	}
 }
