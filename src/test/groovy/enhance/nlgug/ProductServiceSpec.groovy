@@ -1,10 +1,12 @@
 package enhance.nlgug
 
+import spock.lang.Specification
+
 /**
  * @author Hans Westerbeek
  * Spec that demonstrates Spock's mocking capabilities
  */
-class ProductServiceSpec {
+class ProductServiceSpec extends Specification {
 
 	ProductService productService
 
