@@ -1,7 +1,5 @@
 package enhance.nlgug;
 
-import java.util.List;
-
 /**
  * @author Hans Westerbeek
  */
@@ -13,13 +11,6 @@ public interface ProductService {
 	 * @return null when the product was not found
 	 */
 	Product findProduct(Long id);
-
-	/**
-	 *
-	 * @return
-	 */
-	List<Product> findAll();
-
 
 	/**
 	 *

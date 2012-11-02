@@ -1,9 +1,6 @@
 package enhance.nlgug;
 
 
-import java.util.List;
-
-
 /**
  * @author Hans Westerbeek
  */
@@ -17,11 +14,6 @@ class ProductServiceImpl implements ProductService {
 	@Override
 	public Product findProduct(Long id) {
 		return productRepository.getProduct(id);
-	}
-
-	@Override
-	public List<Product> findAll() {
-		return productRepository.findAll();
 	}
 
 	@Override
