@@ -1,7 +1,5 @@
 package enhance.nlgug;
 
-import java.util.List;
-
 /**
  * @author Hans Westerbeek
  */
