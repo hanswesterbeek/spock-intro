@@ -16,7 +16,7 @@ Steps for you to take
 ======================
 
 * Set up your IDE, or just use your favourite text editor. IDE is not required (see below)
-* Achieve 100% branch coverage on NumberServiceImpl and ProductServiceImpl by implementing NumberServiceSpec and ProductServiceSpec and adding all the appropriate assertions.
+* Achieve 100% branch coverage on NumberServiceImpl and ProductServiceImpl by implementing NumberServiceSpec and ProductServiceSpec and adding all the appropriate assertions. You can find them in src/test/groovy/enhance/nlggug
 
 To run what you have developed, cd to the project-root directory and type:
 
