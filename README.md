@@ -19,11 +19,11 @@ Steps for you to take
 
 To run what you have developed, type:
 
-	gradlew test
+	./gradlew test
 
 *After* that, if you want to check your progress on branch coverage, run:
 
-	gradlew testCoberturaReport
+	./gradlew testCoberturaReport
 
 Open the report in your browser: build/reports/cobertura/index.html
 
