@@ -10,6 +10,7 @@ Prerequisites
 ==============
 * Know Java, and don't be scared by Groovy (its learning curve is flat)
 * Be aware of what makes a [good unit test](http://stackoverflow.com/questions/61400/what-makes-a-good-unit-test)
+* Have a look at the [Spock reference documentation](http://docs.spockframework.org/en/latest/) and keep it handy
 
 Steps for you to take
 ======================
