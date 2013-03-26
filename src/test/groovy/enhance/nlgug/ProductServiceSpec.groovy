@@ -72,14 +72,14 @@ class ProductServiceSpec extends Specification {
 			product.stock == (originalStock - quantity)
 	}
 
-	def "An email about our product must be sent when has hit the stock limit"(){
+	def "An email about our product must be sent when it has hit the stock limit"(){
 		given:
 			def originalStock = new Integer(product.stock)
 		when:
 			productService.sell(product.id, product.stock + 1)
 		then:
 			1 * productRepository.getProduct(product.id) >> {return product}
-		thrown(OutOfStockException)
+		    thrown(OutOfStockException)
 			1 * emailer.sendOutOfStockEmail(product)
 			product.stock == originalStock
 	}
